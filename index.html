@@ -19,6 +19,21 @@
       --text-mid:      #5a3e7a;
       --text-light:    #9b7ec8;
     }
+    #privacyOverlay {
+  position: fixed;
+  inset: 0;
+  background: var(--lilac-blush);
+  z-index: 10000; /* Higher than everything else */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hide the main content until unlocked */
+body {
+  overflow: hidden; /* Prevents scrolling while locked */
+}
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -369,7 +384,16 @@
   </style>
 </head>
 <body>
-
+<div id="privacyOverlay">
+  <div style="text-align: center; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+    <h2 style="font-family: 'Playfair Display', serif; color: var(--lavender-deep); margin-bottom: 10px;">A Special Gift for Salma 🌼</h2>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-mid); margin-bottom: 20px;">Please enter our secret code to enter</p>
+    <input type="password" id="mainPassword" placeholder="Enter password..." style="padding: 12px; border-radius: 8px; border: 1px solid var(--lavender-soft); margin-bottom: 15px; outline: none; width: 200px; text-align: center;">
+    <br>
+    <button onclick="unlockSite()" class="quiz-restart-btn" style="background: var(--lavender-mid); border: none; padding: 10px 30px; color: white; cursor: pointer; border-radius: 8px;">Unlock 🔑</button>
+    <p id="mainPassError" style="color: #ff6464; font-size: 0.85rem; margin-top: 10px; min-height: 20px;"></p>
+  </div>
+</div>
 <!-- Floating petals -->
 <div class="petal-canvas" id="petalCanvas"></div>
 
@@ -927,6 +951,27 @@ function acceptContract() {
      document.getElementById('petalCanvas').appendChild(el);
   }
 }
+  function unlockSite() {
+  const pass = document.getElementById('mainPassword').value;
+  const error = document.getElementById('mainPassError');
+  
+  // ✏️ CHANGE "oursecret" TO WHATEVER PASSWORD YOU WANT
+  if (pass.toLowerCase() === "oursecret") { 
+    const overlay = document.getElementById('privacyOverlay');
+    overlay.style.opacity = '0';
+    overlay.style.visibility = 'hidden';
+    document.body.style.overflow = 'auto'; // Allows scrolling
+  } else {
+    error.textContent = "That's not it! Try again ❌";
+  }
+}
+
+// Optional: Let her press "Enter" to unlock instead of clicking
+document.getElementById("mainPassword").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    unlockSite();
+  }
+});
 </script>
 </body>
 </html>
