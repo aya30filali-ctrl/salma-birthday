@@ -951,18 +951,23 @@ function acceptContract() {
      document.getElementById('petalCanvas').appendChild(el);
   }
 }
-  function unlockSite() {
+ function unlockSite() {
   const pass = document.getElementById('mainPassword').value;
   const error = document.getElementById('mainPassError');
   
-  // ✏️ CHANGE "oursecret" TO WHATEVER PASSWORD YOU WANT
-  if (pass.toLowerCase() === "20MARCH2003") { 
+  // We remove spaces and check the exact string
+  if (pass.trim() === "20march2003") { 
     const overlay = document.getElementById('privacyOverlay');
     overlay.style.opacity = '0';
-    overlay.style.visibility = 'hidden';
-    document.body.style.overflow = 'auto'; // Allows scrolling
+    setTimeout(() => {
+      overlay.style.visibility = 'hidden';
+      overlay.style.display = 'none';
+    }, 500);
+    document.body.style.overflow = 'auto'; 
   } else {
     error.textContent = "That's not it! Try again ❌";
+    // Clear the input so she can try again
+    document.getElementById('mainPassword').value = "";
   }
 }
 
