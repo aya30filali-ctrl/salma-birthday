@@ -46,6 +46,48 @@ body {
       overflow-x: hidden;
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4' fill='%239b7ec8' opacity='0.7'/%3E%3C/svg%3E") 12 12, auto;
     }
+    /* ─── Hero Photo Frames ─── */
+   /* ─── Hero Photo Frames (Updated) ─── */
+    .hero-photo-frame {
+      position: absolute;
+      /* Adjusted 'top' to move them higher up */
+      top: 25%; 
+      /* Increased width from 150px to 220px */
+      width: 220px; 
+      background: var(--daisy-white);
+      padding: 12px 12px 35px 12px; 
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      border: 3px solid var(--daisy-yellow);
+      z-index: 5;
+    }
+
+    /* Left Photo: Moved further in and tilted */
+    .photo-frame-left {
+      left: 6%; 
+      transform: rotate(-10deg); 
+    }
+
+    /* Right Photo: Moved further in and tilted */
+    .photo-frame-right {
+      right: 5%; 
+      transform: rotate(10deg); 
+    }
+
+    .hero-photo-frame img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* Responsive fix for smaller screens (Phones) */
+    @media (max-width: 768px) {
+      .hero-photo-frame {
+        width: 120px; /* Shrinks slightly so they don't cover the text on mobile */
+        top: 15%;
+      }
+    }
 
     /* ─── FLOATING PETALS ─── */
     .petal-canvas {
@@ -227,8 +269,12 @@ body {
       color: var(--lavender-deep); margin-bottom: 12px;
     }
     .note-body {
-      color: var(--text-mid); line-height: 1.7; font-size: 0.95rem;
-    }
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-size: 1.1rem; /* Increased size slightly since there is no title */
+  font-family: 'Cormorant Garamond', serif; /* Optional: makes it look more like a letter */
+  font-style: italic;
+}
     .note-daisy {
       position: absolute; bottom: 16px; right: 18px;
       font-size: 1.8rem; opacity: 0.35;
@@ -393,13 +439,40 @@ body {
       .letter-paper { padding: 32px 24px 28px; }
       .quiz-wrapper { padding: 32px 22px; }
     }
+    /* ─── VIDEO SECTION ─── */
+    #special-video {
+      background: linear-gradient(180deg, var(--daisy-white) 0%, var(--lilac-blush) 100%);
+      text-align: center;
+    }
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 15px;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(107,79,140,0.2);
+      border: 2px solid var(--lavender-pale);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-container video {
+      width: 100%;
+      border-radius: 15px;
+      display: block;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+    .video-decoration {
+      font-size: 2rem;
+      margin-top: 20px;
+      display: block;
+    }
   </style>
 </head>
 <body>
 <div id="privacyOverlay">
   <div style="text-align: center; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
     <h2 style="font-family: 'Playfair Display', serif; color: var(--lavender-deep); margin-bottom: 10px;">A Special Gift for Salma 🌼</h2>
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-mid); margin-bottom: 20px;">Please enter our secret code to enter</p>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-mid); margin-bottom: 20px;">enter our secret code (Your BIRTHDAY "DayMonthYear" )</p>
     <input type="password" id="mainPassword" placeholder="Enter password..." style="padding: 12px; border-radius: 8px; border: 1px solid var(--lavender-soft); margin-bottom: 15px; outline: none; width: 200px; text-align: center;">
     <br>
     <button onclick="unlockSite()" class="quiz-restart-btn" style="background: var(--lavender-mid); border: none; padding: 10px 30px; color: white; cursor: pointer; border-radius: 8px;">Unlock 🔑</button>
@@ -411,10 +484,16 @@ body {
 
 <!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
-  <!-- Big spinning daisy SVG -->
+  <div class="hero-photo-frame photo-frame-left">
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczPVStaATNEvAK3oAsJB85woVIhiKymOVEKKiqb3yP6TW3D8_6aSaWLT6qFqrblydqVwEGBIXpUOwCLcEkbrFV46E-XYG6CuJrWXRwMZ6kKESZBrKaVMz8lMekLuMuegtGLDdNWVKwax5s76enRuv8rF=w1124-h1498-s-no-gm?authuser=0" alt="Salma Memory">
+  </div>
+
+  <div class="hero-photo-frame photo-frame-right">
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczMfU2Ws-nW7LeMJ-4neJccwPnI6nrKdWpcJW59pPhafABIx-Z2hq9abD-4UqRZt1Ri6130GAMXhedwvHHoOknmfwt9nchXH0ZDckrC6rlgDQrwc2PArF-xNCloe3smFoEVkryR332k6CsMJHr7FPelD=w1124-h1498-s-no-gm?authuser=0" alt="Salma Memory">
+  </div>
+
   <svg class="hero-daisy" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(100,100)">
-      <!-- Petals -->
       <ellipse rx="14" ry="40" transform="rotate(0)"   fill="#fffdf7" stroke="#e8e0d0" stroke-width="1"/>
       <ellipse rx="14" ry="40" transform="rotate(36)"  fill="#fffdf7" stroke="#e8e0d0" stroke-width="1"/>
       <ellipse rx="14" ry="40" transform="rotate(72)"  fill="#fffdf7" stroke="#e8e0d0" stroke-width="1"/>
@@ -425,7 +504,6 @@ body {
       <ellipse rx="14" ry="40" transform="rotate(252)" fill="#fffdf7" stroke="#e8e0d0" stroke-width="1"/>
       <ellipse rx="14" ry="40" transform="rotate(288)" fill="#fffdf7" stroke="#e8e0d0" stroke-width="1"/>
       <ellipse rx="14" ry="40" transform="rotate(324)" fill="#fffdf7" stroke="#e8e0d0" stroke-width="1"/>
-      <!-- Center -->
       <circle r="28" fill="#f5c842"/>
       <circle r="22" fill="#e0a800" opacity="0.6"/>
       <circle r="14" fill="#f5c842"/>
@@ -434,8 +512,8 @@ body {
 
   <p class="hero-subtitle">A little something made with a lot of love</p>
   <h1 class="hero-title">Happy <em>Birthday</em></h1>
-  <p class="hero-name">✦ SALMAA EUNNIEEEE ✦</p>
-  <p class="hero-date">🌼 &nbsp; [20 / 03 / 2026] &nbsp; 🌼</p>
+  <p class="hero-name">✦ My SHAYLAAA turned 23 ✦</p>
+  <p class="hero-date">🌼 &nbsp; [20 / 03 / 2003] &nbsp; 🌼</p>
 
   <div class="scroll-hint">
     <span>scroll</span>
@@ -452,180 +530,588 @@ body {
        
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-         <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOdwrwPeJm7se89Niit5k7tprswgn3Hz7itxIB81H2FtvmeIwnDeJQjKMHTGQ6WdyB0XdxOLzugRTHDsTTs4J1UF-RxmM2BX-wiyHYqPojCiOC5WQvwpOibl8r193RaK3lErfkixcyM87BV1J31GBOU=w1124-h1498-s-no-gm?authuser=0" alt="caption"> 
+         <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOVOnFZiwJJdtbqafn4v9ugsdstypXpwx1-G08ApjhBpEIwtIvtp1tJm9q2ZOmKmPmuh4JJujjQnr-DLWTPdapufbw5YfgKaQFzP7K8uecY9f7j7ntuRzrpa62b03ElzHeCR0C7S-te4NU6Toa0ipgL=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
          
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Where the 'Us' story officially started. 💜…</p>
       </div>
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">💜</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOo8ihMMe8pAv2KZKoBRdq6zE4-gtip88ZYXWyE7GKgMT6tJ4pNy6ltF6-k4eV2RBbS1x-uzRK8YHfRItUPkpPvlat9FcBwotfJCc8m5c0p4wjZf9tapf4J9basfswdqHiKcv7sL3jORIxis1PhcjKJ=w1280-h960-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">If I could relive any year, it would be this one—stuck in class with you… DO U REMEMBER THE ASS KICK ?🤭 </p>
       </div>
 
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">✨</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczO2mfMmAKDI8VIonEEQwutf0Hh04zFZd5Qn64x_siDzW0tpocLnJGB1uQ2ZULmvcig6mbzx-_G0qK_ViA7FCp5EZZZKUt6HBUfDPqYe5LIEGPNkyLBDqk-b0Ohsq1qWHGYg4ImN5SzIrKQoTR3vYz0-=w1466-h826-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">My happy Kidddd …</p>
       </div>
 
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🌸</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOdwrwPeJm7se89Niit5k7tprswgn3Hz7itxIB81H2FtvmeIwnDeJQjKMHTGQ6WdyB0XdxOLzugRTHDsTTs4J1UF-RxmM2BX-wiyHYqPojCiOC5WQvwpOibl8r193RaK3lErfkixcyM87BV1J31GBOU=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Your face says it all. 😂</p>
+      </div>
+     
+
+
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNnh7wTLt0B3b83knlcbbXWRYE37xwIqvL2Ywkuvicjm4yg_d-5_6o5IsooU7S9rwfcYvRSNgXSgq4O3FYt1rcPK51nkO5Ir3gi2suFRY3oAjGTtYhoU_FPi-p6yNFUCUgtVacWEXd6pZ8MiCmfgj04=w868-h1156-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">I would definitely say YES... a thousand times over! 💍✨</p>
       </div>
 
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🎂</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOXu179wKPNnvlS8qXNmThOLvyjBvSTiRnPdyow6ZYYwZPdPBR466Ugtj2R9VSCJGo0e3wF0GFBZUBLNLVEA8jkTsLZIS7UYPKJS31w8btZmiAaNaGGhYTHp-I-41LKqOXHCJMXHrxsssAlVzdpyznj=w1280-h960-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Looking back at us at 16... I’m so glad we never let go.</p>
       </div>
 
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNK6T-r81OJQcm8KlmVPI4xxUz9-AD1kl7W5t45zNjqbrbfWk9cYmMzoyPE7z6CmDEetR3fx5DYFhNewU3k1ZyKO93V-BsmcQlcvW9IYPTH_5hXuEQEFvGQZZ6365vGWKvIRDKzI97jrMwhdBjXysFb=w1280-h853-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">QUEEN 👸🏼</p>
       </div>
 
-      <div class="photo-card reveal">
+    <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczN5h3QzCw5i9sEVdKJP094a8FNs44MRPOx_gVpKb5KwahlvLnw0f9NX9odzD2uw5VrvgklFuXztOPHqIh6bSg-gb4e3EabOjpQXnPzFbVHykEdNHaM024SIcuNENVjHoXcO3-tW4ZlizoyvhBFwnEGB=w1028-h1116-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
-      </div>
-
-      <div class="photo-card reveal">
-        <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
-        </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">The prettiest smile 🥺</p>
       </div>
 
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMX7SmOaT__xRgkBjroaHFOzx1PkEHIGwVUtks7-uFPEwwzozU2_QFfJ2LwPoVcb7wh2QuRBqAByXVd8IMgAjhI_7mD4Rk-yqXj1tTF_VbmdziXIpJsRhNMUP7BFYNnNsZyS805p6-zADmkYHYoJkU7=w1466-h1466-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">The first friend to ever walk through my front door, and the only one who never really left.</p>
       </div>
 
 
 
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMM_k5QhL3fuJ20f2wKFo79ODMUyj-HKsKJ2agd22bgb_td0VjrXI0ULuNKhHpIDVI5iQpL_Ii1fqYQ80x-NS7nvkzlvY4CZtUo3WeLm660NsuhWibARG-H85omBDI1s38AqEN0tZzggUeV7SXJOFYr=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Ma3rftch chno nkteb f hadi</p>
       </div>
 
 
 
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczO4GUF5kSSHdQ73znWFfIVpek8xP1Z3GjKLhsdOJrg1UJGTVOlXrOBabi2cOBlVdvUlTA0waKGapAQOYLJJ-7ZddvfzmnXmgPgXvs_YLo4MROW9wByYOpT06KB6ZMfhZpZyc2urhA9mxLRhtKdutpky=w1280-h960-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">EHHH ya lyam </p>
+      </div>
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPVsKK1zKZoRi9fTa8de76NTmDPw0tvaXvznE2HbSsJc7rvTHmAL3IJduQvQTc7rBrIDS31rmGq4pmJve4V9RJ-hKi6UXw0OM89XQ1v981CBuAGmOOnn2l0wjxW7gb-5uisb7gcHchFX-x-w4xEpzCn=w750-h562-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">I guess hadi was the first time ntlaqaw b tlata f MACDO BTW o klina mcflurry </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOSkgnOzXlvlIQoSg_T0IgBXS1XN19w9NiOUAFALNnUExJc6JxDSEITLX0tX5HmfvcRhnZGLItVsHLXfltO2n9pA6KCcxOLmGF_z_ICN0kl-9gbyzg_aFANeK-W7sRW6kgQHFVzvqHW3DkMGGKF4Y14=w768-h1024-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">My FAVORITE ONE . <3 </p>
       </div>
 
-
-      <div class="photo-card reveal">
+<div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMGx3-xMbfcjLSGqbeTxUtbcJ-N_2eTl0GugISs9SJBHXV3T5z0BFJ500ZKk7mSSF03fvgplWI3Bby8ml75KomOJP5lsbTNFuUVLbBSQtaDlMddfOh2gZoArLXzxYiv8tPYW-_bNyt74V_KRf3jPcRw=w692-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">NO comment , look at thiss ZINNNNN</p>
       </div>
 
-
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOsrZym6Qkw-9-K8Thun3LReuhIsUy14lSja7j5kfLsO0Xx6Yp0PWWNrgRIyXlgEd4YUQv3Xt4vmtvyogH1o6Ff2nYcaksOqvjuWs1g3rBeX2nR6cBceGz0efkZdPhgmbYNAfmei-nbvcAOiF47lwhh=w852-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">LI ZIN ZINN .</p>
       </div>
 
-      <div class="photo-card reveal">
+     <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPbmSgZTOA081FhFsvl0fiNQQ54F5zjXKrrxfyxTGAXoV5304JSsFkBCVeNOsihTvA1u4qGgl3QlswblpDAlO4AaWAy8_94NhvimoJx5uOVUCS7CUhPfJ10WG4kNexTxMnp-zFUHUZx8fRl3s-Tuyi1=w1280-h958-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Hadi was the first time nmchiw l bhar hna Kamlin o kan f lekher dial l bac </p>
       </div>
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOgGYl4QwRdgSRUvZMV1eTjnhi1svmq7cAH9i0wukTYFudflh5dmSEwNVhF3lYAmviPecAVreftwfKXUUQzcC4V9TQ4D4qpdfEByhIx6AFtdOpf87wDgEYs0qytPRKdld2rT3YKWPIeetbz3Eixbizo=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">No caption needed </p>
       </div>
 
        <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPMt_v0WXX4st5lWSRHlpYDrylARYDdvRpsh7xQrq5yI_6iYLrKHVFS1yO-SUS7B5Ztfeh7X1e3A1e_wLbHqfCm7mUOibsQ9EUHJ5BKjQW1vifCsCW2UTAe0sRciMeQTQY4X6PVZuiqPcRvIZzzu1w5=w692-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Litteraly US.</p>
+      </div>
+
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOMAb-jot8WTgmLozWV4hk8OM2RgEr4_8OYGetEEOoLr6lFTPmjbtKScpJ2TJb8AnvGtfkDmweeg2HxfvCVyodubEOMjeJPyKssier9wldf0s8ARK4DWz7X5bt0UGJ8MBnYPuX5qMOz02XeCvVPEvHi=w768-h1024-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">ANA WYAK o SUNSET 🌇</p>
+      </div>
+
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMiPVAqrQs9gMnzttMdpyy8SDRvWixRmLbzNE8piNtl2lQUM3PNJvwl_zjYP8veodA42KQR5G4xnyXoGDwndDQxD30l1QFQUuMogRgCF9gBZQ6uGbmzSi0rMwp2Y1LMIfqDqQ8jfln9cGMnwFtW-QMS=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">This pic f ramadan dial 2024 </p>
+      </div>
+
+    </div>
+
+     <div class="photo-grid">
+       
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPRzZPX2CVdJWoww118Agu0gMUKlEU-Zpfjvo-7DNUGIC0fRwxrGfJdwncotkC1JgewxLSCTKe3zyiy_4m5klx9S1np_obJRlC_kud8jVVK4AdD1ZAJlBMtrB4iiNnmzv0OSwUWQ5VJwe0Y_4eRIj7s=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">My cutieee 😘</p>
+      </div>
+
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczM6j3ho3JmslV5iIsLPN8J3jE9ibLaPsBArENDoaFr2_o1fB_NFfcTvDnOPDsPWhfsB9yfdqkTyYJJqZIaYdwcKhmRwV72VTbyZV51gLNhKCMko9OAuO1rMy0ZIHiclj5UHNIpg-hvwOifeW1uSUuOF=w1466-h1102-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Malqit mangoul , mchaw lia l kalimat.🫠</p>
+      </div>
+    <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNAMpj-Ag17V7YIRAeaOOe9WTTaktdRv_XAxUQJ8OSjvVg0y9OzrbwHCBGEckyxHsX_cDcqbxUrVfn4ifVrfd28WmgxZ53FzzxHEg9bBjy2OUOyVwnK2r5aq0YLYRJzE_hOlsEDHnViCW8iAiJLG5So=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">🥰</p>
+      </div>
+
+   
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOCH2Wp4xi4L6BmIkxZNDz_0hf9UKi6juIFzunLMg_J1YSQ-VIALnZDMClPshMPbEroXcrO3VXN5_lQZFOc70rNoUFfeERgJQXtapKG6U-NNBKA_CQes5Qnb1wFClYKRflTSckNfpBZ5WMq-VgI0n7w=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Sleepover dial my post-exams,so therapeutic </p>
+      </div>
+
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOFHElpaZCvYpHqgQ4HhQR6vjFE8RCBpuTazda1LU3a0tKRncGPhNE2MiLSiGjpehpACKcCFVJRH_9Esy8t5WVJ0InvWRed4De_m_zStS2-yZOgfmFK2INtfzLG4T4mokMcIeTTRQZHAntaHsbu74JR=w1466-h824-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">THE best meals li kanakoul homa li kanaklhom m3akom 🤭</p>
+      </div>
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczO7Pk7j6P-tSUmuDDIk3pNjNRr7j5KgAaEb2I-s9WT904jG-uutU0l0dU9fVfjYwzc39Pc1IMBBg6K0WzsowZarcwQ8vcxoUq3AhiKjtNp8ucxi4SZGycWmdLXOKPeio5D9u9TV4xPH-hNuKKHKdwnK=w844-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Kandhko bhala maghantscamawch f dok lhlawii…🥲</p>
       </div>
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPt1IiyGh_723DFvMlXrBe4KO8qXYUo5-umKrg2EJLW6gacl1MFs3hJLSifKt6f5odgDGkYh_7Ee9jBNYbPYg7WVqyu535e8_KRRBXpxjhZNKyH52B1OHuphi9jD5EHvOzGyewv28RIcEPbZdex9fKM=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Another sleepover , FACH drna sushiii</p>
       </div>
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOY5djNKj7LVMfQt3_x2KEy5qg13JRkvwrt6t55-ig06fbWoORDGYhkkfWNQxUQ8NNftwItngTTL5_NxDnDZBCQcmTF-RwzvigA3zqXsXEv97gcoQBaty08EOmREBGulqwHwmbXZJ-ROrBxe_bxzCW-=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">DIMA Salma f l3alam lmouwazi </p>
+      </div>
+
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOpLYYeoSZYZH55PzDXboCacH4HyhFy77_Nx7RBolTevzgM1jr4twgSouuIsZu4Hg7tqM3UeL-z9judAPWc7IzE6YtijQkqQ2-DIvNLooej-WiuIa1MhwtOPSuk7-8-ds08OJ1jHn04pFFJDOdtpCnr=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Mera mera kanghflk b zin Dialk</p>
+      </div>
+
+
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOcy731l9Hr3t-L-mgMG8h-ABbe7MGVqgQWvokyVMS_jyC-jPg5dMOkil-HJZX96mSYsdRebjMWQzQppEFrmObsa_X7x7_qSoGgIXm_slD5bXE3qrwh0m-IgdTFBwEpFVhrmC-6Kj7E4-wWckBRczBs=w591-h1280-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Lila 2osstoriaa , Koulchi 3la BOU3D NADAR </p>
+      </div>
+
+
+
+     <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNBudx0Or8jMj9BIq8auZuFBA9tg-AKE1r7C16wfwh48Pt8OCux6TroPkpuurpYMxQsL_yw4jpA7kJkj5mQTQfFGvEGZlr-q4bhdCv2oV-4XxzsQt8gdjV9KuOn2AnxfFiF8yrtFWf3DpIT8K4I8CkA=w1466-h978-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">We’ve always dreamed of celebrating our birthdays together, and we finally made it.p>
+      </div>
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOoCBNc8f6gNrkxbK0jgryB0XNu88iWaOeLjKrTo8rQdl1flkSRBRZl0Oblbi8tMBpC3gp4QWz7ifp1xu2jieYb2r63iKWBKf0FT3-9Of0Xl6gC1lt9HnkePzexfEPqZUFgeKjUlJnbbl2Rc_yzDBs-=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Thanks to NADAAA 🫶🏻…</p>
+      </div>
+
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczO5CkyEChx2WL5FeNvDc8bQXsaQSqINoxAzo8VBFS1tMDZOXi2ElKrulrvq_PbdcRKOD__oiQHoY7RGm6LpW2S1OUQEJUaVHuDvo0RQ5FHMN4u-gdjsrUviJFReoT9LGuBoR_xW-WXlVE2w8NKgxMk4=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Chada fik chdat l3ma f dlma , you are stuck with me mnhna l 100 3am Inchallah 😁</p>
+      </div>
+
+      
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPsK8dFyZQs4TCj0QzlTKtzT6PuT674Nw_Q55EtF8QxCZKcU6jiLTtM3BSECxTubxSIDjFRVH48_mD2sUrzTc9ox3bnWndl5wk5urd_C2elsvflutY6A0y2v4D8nfKQchjYrK00w-PgZ179Kq7BbwyZ=w1280-h960-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Nass dial l BrUnchaatt 🥯</p>
+      </div>
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNFfxxrlx7LvI069CrLPcUe9byUe8cqQUKXQyHeaDC3ClLcR2BhTGHnWRPBso8WG1NvVmHaH7NA2fWhXvpPQWC73hQFrN1wpGPhceveNNP9HUZn813IwSW4KcxayQxqLqkyYfK2BE4t7VHzeMzkIrJG=w960-h1280-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">J'ADDOOORREEE HAD L PICCC 😩</p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOIvLYq6yr2b_-6hl1XntK-mS9_LpOy-y3ompkc0SF-SRGvoQD1BW6m5XyaTiabBUKQDK39Rvp-L6_4N1YBeif9fk8ALlxq8CVt3tczOJpigXbm3CD791eQs4Muq5w9dyqHOd90rr_wAkB2pVVPd-um=w1466-h978-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">HTAAA HADDIIIII ✨</p>
+      </div>
+
+      
+
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMr4eSxxQjNuBZ_uCcvgACM7rhyKUO9Ra-U06kGyP3huwZY0WHq_Lp1I_Hdpvi30rLs3ma7ABmKSQ5plMiSWhAbx5W0e-mvouD63wvoAwQA4z19tO9aVBdFnsLYZuAmCk60EOSQCmPqrnV_G9okExAj=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">📸</p>
       </div>
        <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMe2levVI5EFzoOtvPA2vS8XU10MMTtQt0QL7ICCNd3xhxgnh8Gv2LY7FkinCeIxbNxYfACZeC2gA-Ncyuqv6zv8_k_NO34xuwJ4wTuYuIbFpDp7txxaEhPYEnji9gk62NKbmuF43VBC57VvJBrsXMT=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">TWO bodies , One brain Cell shared.</p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPM110g0M5cO0e38B937BC6XjrsfYLQwQTBOYubykjnKBhSAkJeUontVZhaKJb9DCZqLpi979wXKnY12gWtZd2MdmATnAt9LsXimyf_KfHv1b197V04Sa9PjGwOc9l9LA1W0XNF0l8svXLuSlpZUpZF=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">Bssabk ghadi khassi ndir botox in my twentieess,From all the laughter.</p>
       </div>
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOHQcAT-UMjHfbegqppMhdQRdi8Ju3eT7AGCTxmmd-lYC_11vpdeXMMDS-dRL4ZcCmfTni-H1HQxzzbvx5Uptb7oRQ1ddPyY47odshwbwQ6oBDw3AE0kjAXVY90eGdUSXKKSTLf3cqm7JhNKX30cG4c=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">Cinema date 🎞️</p>
       </div>
 
       <div class="photo-card reveal">
         <div class="photo-placeholder">
-          <span class="placeholder-icon">🫶</span>
-          <span>Add your photo here</span>
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNKoRroh5VRPMETaSoVOVQMgnDLNuIpDEcInjfYxwb88aUEYkfQfcCJriT1tKwLSlmZiaXcB6U0s8gyOKKF3t6UYKBCf4VdgSQw1muhHcNnJ8UgBn1fbQSzey8d2_rHn5wOzX4ev9l-4CB1Jr6BX9cF=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
         </div>
-        <p class="photo-caption">Write a cute caption for this memory…</p>
+        <p class="photo-caption">CHTI NTI RAK BENTTIII</p>
+      </div>
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczORg8SI_yQ7c0EuRN1t6607ZMvvMOw0m3bC1vbrg3tFwmgG-C7Pe4H2IfYmcFUi4CUZ1ZiFJTQA_RyUXeWZ13Fa7rGJhk7b2czlM7eKlRfnsdgzmu84IkIRblwl894Fw8CHa-iaBeRx-YijFDm9JOMJ=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">She’s 23 but looks like she’s 5</p>
+      </div>
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOs4X803Ko2qgZepEHoweJvXlM83zD6Ujn60ZPu7hsxWQRqqJppUSal8uG5tcjRXGJvLgvEZjVbpY5kXy6Fc2hBE-SEiplodRC4OS14iS-eKtczXS1Ng3aXq1PE8J2OiL-10dWNMGW_swUHfV9c2rAt=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">🫶🏻</p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMfx7XJ-h5nnb1QVFFacrMiNK7IDFArT5JsCmMzLL7Cge2iuJSAcLNcXIdQBou0BdnbSZR3Y5MOXREcfGkA6bnQOhHKSRXbmdNjaLV0oxDBnECnh0-umE52PxaK7H__XGJ64jvPcu9REbAN6E91ZpzO=w882-h1084-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">My forever dates. ❤️ </p>
+      </div>
+         <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMAZmwgtD2IV81bdqbepRZEbhO1M7r_NN5ELx9hO7s5QJj6hIGiiZW7Spt3tLStnwqsvnz1aRF5s6o-MFFGR6jwNmdzibRyp8W1tXwbG3mgVfiEGywcAeb46CQtJSPNBMLVcdlNi4JH9ODCn1ybBg4w=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">My  SHAYLAAAA 🥹 , I'm SOO PROUD OF YOU , and I LOVEE YOUU , SARANGHAEEE ❤️ </p>
       </div>
 
 
     </div>
+    <div class="photo-grid">
+         <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMjmGO6GQgd_5tIgl1QM0ZBHlQnW4vXghe8cjmJsFHH2BVt-9k_pWmXoVnp7YXZEK2VGGCJwpiWBa4s1WyMMpqtFufSEhiuuyZzYrCUMJL35eAuHwexO7iy0tS0o1QNK1x67p-nC-ng0hhb-v9EW8fj=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+          <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNjawfXeeFENM02UTJ6o-gqItTDZmPHdSzJdTFVK0xBOM60zD7OI0RfUleAA4C2hhr_DyJT2nHAVBIgarylVkSW7GOmPdL5rp7s11GWx_He_9reWvCqzarxjyLQRYAst0s5WX5rW6TinSFbtTUwGgOm=w844-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"></p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPVStaATNEvAK3oAsJB85woVIhiKymOVEKKiqb3yP6TW3D8_6aSaWLT6qFqrblydqVwEGBIXpUOwCLcEkbrFV46E-XYG6CuJrWXRwMZ6kKESZBrKaVMz8lMekLuMuegtGLDdNWVKwax5s76enRuv8rF=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMOsamY-JScYWReeRKjiNBORB-69GkavVR5Tn-XoG-mVjQfRH3EYODhHuE19SmGaO_nOVYKSGQ5saMyQZz10pYuRKvqSyxqpDx6hbeqXTbACzy6oB6GTyyKnplp7ajjAaaq2Iy1Bccqec6sONBF0F7f=w844-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPO_tGMjxd6bEXmkltsAeR8zglDv9vF_YGzhfyXIKm45V3pKUC6yxcdhDKajqvW3jle9nlnJK3K-J84pMMFhW4angN26JD-3smnN4ajKLvQeitL56mmQogdN9FZAyE3LJtN1pc9lv3_GUIjf5em1WJh=w1466-h978-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNZRRHc1LnpDgrbJ8FEC5_68rlRdDtDVUnQUV4QRmlvWUET8PNVrbiVo1Nkh0xiSvkMS_WMHDJ6okn0_cAGnK7-RHL-FMc_R_-qZrul_sLP6zyZyK552DkvmZ23U3nWXDFbdo7vlqIbxLOKu6A2AONa=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczP1a8hPGIZTjXR7FV0J3KULaY2xu674x_DOH1qFjRYKMedRvA2YR3qBhTdHX9DJhuwwID623vDBtZWHUpNkKma5jKeR7s6Dk_hm_mTJqsnSRZ4bvcdAsk-yvopniGjJEzaQrDCXPS2KPc_IbzDM12fJ=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMglWLtX34tLM-vb6GVYlvri_Vmy-NR1v_H5TUg-85kgis66pZs1MRMYs5MZrcwtO8uJJBGMvnESvGoiSYapmaUrvEnHHiZMopyH8P_8E2ZnaXAVbv-a952sC58i0unYGBVomCsfA0_kJjWtjHD-EX3=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczP0aSWnRZb9tvFX65NancM5zoy3DKXu1kf6s_ZdZej3SFw4K1yKiAb91a8mkSLkOlUTITD5ImlZbUS4PMXiksnHJLVHawYl0GjFmBHcGUXKMj_Xf_HWRwImfRM9fn9ZmWNeg47onysv1nhQq_JwJJXY=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOtTfrcNk9Qwk6uRih5zGfnzDVoSd83WD23DBYry5UrCKH1WrY4TlHqLX-FRrSxH7I4LrJzeTwbaYiaybDWmpEaaY71Clc7D-pfbSWT6ES_auZeJ9lIDTBFUQ5JSKCJa_e-uHkVzph1mAuwi8MEn7bm=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMhpzY8AzEUThNF2IdsjstX5gn-MTq7qhL8oFvt8coy1zteJ1dL_e1yUEJbZ-lSB510c8h1OsaVdxE54RSn7A8gca8iu3PKK88zsBbRWXKL9t98hfRwG7k4sv0ME9sDuyIPhYJlmZaG86a9921N5lYy=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption">CAPTION </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOWk7gsXVj0b0x5M2NIcc6ZZpeC1NktCFxMyiqrjiGKhcjG7y7Z7fpXj-zzbF--O8ubzhHEvp0F83JayeJd6FdWgy0oeHdLZ0oB9dxK7D3iyL3JhFsa6YtIdB7mkZP-u2Ex_R5DKVDPZxSeBVApaCHv=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczNphlpzcgv1rIqPU_Gwe2SMLbHCxcGuy5VPrmZHWy5LngCUFmzdsKjwBEm1kCBXIpEUPCbhaUGBJxsyVcs8FzTA79HVEL7UE4m3HK1P6O2JIIPn8tWfNMSQi23U89e3MWbo1UGAk7pSvMXMtTpKcYVK=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOElScKjEmj7kEw5CiHqwDrRne0aC61OedFOsWoYAnEOwpqli3jqehPX7CreKNMuSpuk5C3oxjGb0ksjO3Mxx9-Ws3_cuHj0akBCSQO5NAkOpaxiNPXJoTFO7gmckE6c0ltt1e4S_nI2CcwxyTVhXa0=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOiSBQUGKEkEmGFus05CvELUEwlWSjfaAJHYYygaDOgOupYUqLAryiMU5vT0fI4cCfbIrvfLLAIV3sTZucme5oB2LriIK3hIHi_gzmc6ct57hRMzxePFZGc13Zfc9ZlcuOEq7C876h8AxrldhNN9Klm=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczN7Wnua6hSt7KyShkWYyuuwVKnaYFIyq1JaAAi-fyB85GkL6Xz90cct6xchMyFc-DRecAgRRsw45x7KUTrXANViHbw2nGo2X7lIWEj1TeKfxd8bQ7-Kcveu5SoIAHfKf8BW0DZNfnCFwYNk4mA4gjzh=w1466-h978-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOt340FPmDy5QaiLVpyyEz53ZKWcjl0Ij_o0cqZQmx5EnXjg-rM68QM5YEfZQULJEIHUPL1-1pL_4scUzPUUpOqP4ofBJvHdfD0zDdzCJbKWppCZ-ZrB1SzCXT37T7ABei_4WsJFhiuyrRBRKeqZILR=w1170-h1155-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMfqLT0xWSNu-D4gqUHz1_PYnCh-yU_7ImjDOO-XCJpX6xDuRYh0yrLWwgBkLet4wLrslpHQyyV5txjwRG7Z8xL9C3n6xxj65iQNFLk3c1t-MZDZplR4zHmuAuy2t84zS07aBDfSI5dUyNSRqAwgcl2=w844-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczP0ljym_mHseoAPvRmflWKyb3-N_v8ATQIxwyyw-vyxbixgsxquVTQREIn7vNTr_fR4kaQWh1qD-ZS4Ouxi2t5KFxg_M_3ISV2MzgQYwubXxLb3LuKBYpFql4LB6g4xuZp7iPDw9ghae-quEuRX0PrT=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczP7zqbnL-eUoQrj-eb9dDEXMBHdmwPWHtjfBReIRDvfM839FK0B8Iw6dIQAfIRmREhVCqsc9MRQmMM2nl4KXGk0SA0zw_YpvDnB3IOnIUA0UloCJhaxEwYj8A0N2PiZgVMO84LFy1hN6XQRY4OGB5Ik=w844-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOq5BMEyRn25umsPRe3RxbNYOY1cbLSLVQQBYT4WdbgeDMiD3dXpcbYTgNRCZGqh_BBNOM0ju0Os_SK0-lShHnYFsyxBdAcIv1L-ePCLNBRGtq3FcnxsNhOlFdxZdaJD1BZtaG9at13VeBic42jk82L=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczM6jSIdnic977Ka7q7KuXYtH-advl1SmqF0RJ7Rp5hJF7nHYg5p_zSGI-kdVeQuiqqfUaXlMCTV6OthOJ1pumwwopB7_s1Pf3ckDHz5jI2KMwWAX71MkdAnW6vY3NznYquUSJ7h07-Gews_hp9BhpWi=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOJFnKqQ3MH7tJW8HJW2Fk10x7jMoBF0I17McnFEgb0Pb2dN-y1Hu7vtIqu_iN6RP8yQEM7A-naFo9tHYnckEX4SIHoBXh6M9T6TNe880bxr-uSE4KAWQFaJC6i_dzQ6GbHH7Ah6XS8NpFzAtRut9Nu=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+      
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPHssg0pmaaTgW4XCvRtYsqEUQTn1WiqgiF7Rm_bNWe3uZQqMbmJAh4TTMKvliuBiMhpGt3ZOWCCsnMBHNfhhnH2Mc-6nnYzzGL8v3OYwl-dq1LKuqH6juEA8ky1bKNt7P6pG-IqzngSp1Hh9qK5paz=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOSuGYywdMl8TcLL5xJKo3QVfR_rJ0xWmeyblXeM-D7rYT5kxYb3YbD28X1kAOl2NlfHAGyN6gRIYJHF93yhjlkpdihNCiWKNgbKKpwCTJOvrfMPhqAiOrq-SrNOirfplFurUCzQFFg3zFs8jBqfsJJ=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPjCBbKKe0mEj5zLVdBX9YelPDmNAd5P__XQGoYoKtwdhTFQQj3T5oofJRWfWSMPIJssS-i3EZAkDKWMWHl12rm8gYpMLzq5HAKyZ-QaoRY6rzAKI26Nuy7BdPOa_PyMrrb1mYeO02U6b9nld8yI_3H=w1466-h1100-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPYIolpdvQvQ9pCSjpQEuw2VtOzwtXr-pkzF1RVDtvd5vcTGhIG1hVmk2PeP9s5Jj1SV7qceJsV4Hi31dRwUvAnFNG91ysMIihry0u57mCUW7kjahKmkVAwC3jt26UD5WbXSsFIBXhTqeeOeeLCJloG=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMq2xkh9GWppM1nJFLJjSx5FTcer5udhWOLPBXOvsIofR-kr7PppBgW4yf4QSRD5oA72V0LI09Ojh6eYqewKc0uOp3K9eGHdyBLwT9biujghQhFTA_0oSsfX0jMn1MxJgZdWuU6dOdyNbZgF2w2zB0H=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOZFGNSQj2MFehx8_mMwpSIOfAtUVPlCP0cyua6dC5u5pThrvM7wzadt1jazr8ec2jYgioSCeOCridAuzDiE5V28eg69HWsp28Qv56cwr3GAPGkTq6gSjfPeT7eElX-r5jTZLHv5O8wf3g45oLSZ61m=w844-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMdVmAovPInDFXzVWX1GF_9S0c5DSyK4u9KZhz2EkjdD3z2QlAkaDPnZg4qjEJBAlwBXzIvO1PnalhiR1xTwxbJYIFb53vZyuOqFpeS4J9RQjyTuCNb2HiB_K8QUk8y4mlWCCU6OjQ0mprtl_kX-8BB=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczPtqzICJ5MfSQVgve71Ogi6DB2Nof8sJoH56GvRsR8qp0JEPdDC13HH2vnAzhSassiQYEMuYcvezq1-wlhb6lQlVtjDYMj3Y88gWXt56aErPDlI8n9wBV_Yj2ilQi0eUX_7dnBshqxut03EP5kfaFNM=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+      <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczMOHOmShaGaEmCPAV_F_edrSe6XxyC6_6_STRr_RtHzzBd7_ldc6LxHEZduxrlp_3EK0Dg1K9IpIUI-TPg8sxgE5bMWywXijT_Qkg2f5cX6UqssHpsqDF_gOJryfXBCE_gZ2wKnj97R8n0CSjQA0RvP=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczM-wPS84GzXTkOk6uQYtgIIuLTj8k0Tw7LB3ravSmUxUBKViK9N4cRW9kQph9Tdh2pWm4ULGQIdX43-uz1wPOYdnLdkO6ArkFF3idnz6xz4ri7qN9SYCxWsvvOxwJhJiaHtcH1ZlpvZTM6pqnczRoEH=w851-h1280-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOmkMJ9YfjPUhL0J3CJqOOWftrGuQ2Ow6OLe1QXk0zsnGwsoHEtZGbk2CHlFN1Bu0VhQ9_Bui-Ii5LhQsBlEnQaog1_GsukrctZeSPmDtr5I1MLK4qxVZM4zIk60u4zF5Ux2X4MgmBzUhd0-2WldPRA=w1126-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+       <div class="photo-card reveal">
+        <div class="photo-placeholder">
+          <img class="real-photo" src="https://lh3.googleusercontent.com/pw/AP1GczOeGE89cBzCHF1yNESp0mZiQZT9BRxlwl7IemIVccRltMKToqVcD828X2siInrI_dURvtAWpVFP_isLvX5QQnCHWwbByWC5L0eV6HIG9KpLAXsp_81qVreiMGEJbnH-DILdGIvQvs-LJfRolzLnG3Un=w694-h1500-s-no-gm?authuser=0" alt="caption"> 
+        </div>
+        <p class="photo-caption"> </p>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════ PLAYLIST ═══════════ -->
+<section id="playlist">
+  <div class="section-inner">
+    <p class="section-label reveal">Song for you 🎵</p>
+    <h2 class="section-heading reveal">Our Song </h2>
+    <ul class="playlist-list">
+      <li class="playlist-item reveal" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 16px; width: 100%;">
+          <span class="playlist-num">01</span>
+          <div class="playlist-info">
+            <div class="playlist-song">NAME_OF_YOUR_MP3_FILE</div>
+            <div class="playlist-artist">Artist Name</div>
+          </div>
+        </div>
+
+        <div style="width: 100%; padding-left: 52px;">
+          <audio controls style="width: 100%; height: 40px; filter: sepia(20%) saturate(70%) hue-rotate(250deg);">
+            <source src="Alice Kristiansen - A Million Times (Live from ONErpm Studios).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <p class="playlist-note" style="margin-top: 10px;">This one always makes me think of you 💜</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -633,48 +1119,144 @@ body {
 <section id="notes">
   <div class="section-inner">
     <p class="section-label reveal">From my heart 💌</p>
-    <h2 class="section-heading reveal">[Number] reasons I love you</h2>
+    <h2 class="section-heading reveal">23 reasons why I love my SALMA, aka My sister 🤍</h2>
     <div class="notes-grid">
 
       <div class="note-card reveal">
         <div class="note-number">01</div>
-        <h3 class="note-title">Your laugh</h3>
-        <p class="note-body">Replace this with your own reason! Write something personal and heartfelt that only you two would understand.</p>
+        <p class="note-body">She's a blessing in my life, making everything better just by being in it.</p>
         <span class="note-daisy">🌼</span>
       </div>
 
       <div class="note-card reveal">
         <div class="note-number">02</div>
-        <h3 class="note-title">The way you care</h3>
-        <p class="note-body">Replace this with your own reason! Maybe it's how she always checks in on you or remembers tiny details.</p>
+        <p class="note-body">She's the most loving person I know, with enough warmth to share with everyone.</p>
         <span class="note-daisy">🌼</span>
       </div>
 
       <div class="note-card reveal">
         <div class="note-number">03</div>
-        <h3 class="note-title">Our adventures</h3>
-        <p class="note-body">Replace this with your own reason! Think of your favourite shared memory or trip.</p>
+        <p class="note-body">She's always honest with me, even when the truth is hard to hear.</p>
         <span class="note-daisy">🌼</span>
       </div>
 
       <div class="note-card reveal">
         <div class="note-number">04</div>
-        <h3 class="note-title">Your strength</h3>
-        <p class="note-body">Replace this with your own reason! Something about how she inspires you or lifts you up.</p>
+        <p class="note-body">She supports me no matter what, standing by my side through every decision.</p>
         <span class="note-daisy">🌼</span>
       </div>
 
       <div class="note-card reveal">
         <div class="note-number">05</div>
-        <h3 class="note-title">Being my person</h3>
-        <p class="note-body">Replace this with your own reason! The one who gets your 3am texts and never judges.</p>
+        <p class="note-body">She chooses to be with me on my bad days, not just my happy ones.</p>
         <span class="note-daisy">🌼</span>
       </div>
 
       <div class="note-card reveal">
         <div class="note-number">06</div>
-        <h3 class="note-title">Just you</h3>
-        <p class="note-body">Replace this with your own reason! Sometimes there are no words — just gratitude for her existing.</p>
+        <p class="note-body">She has the purest heart I have ever encountered.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">07</div>
+        <p class="note-body">She's always been there for me, through every single high and low.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">08</div>
+        <p class="note-body">She never lets me feel alone, even when the world feels heavy.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">09</div>
+        <p class="note-body">Every time I see her, I wish it's not the last time.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">10</div>
+        <p class="note-body">Her smile is the cutest thing in the world; it lights up the room.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">11</div>
+        <p class="note-body">She has a unique kind of beauty that shines from the inside out.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">12</div>
+        <p class="note-body">Her eyes are truly wonderful and full of so much life.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">13</div>
+        <p class="note-body">Her heart is made of diamond—unbreakable, rare, and brilliant.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">14</div>
+        <p class="note-body">She understands me without words; she just knows.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">15</div>
+        <p class="note-body">She makes everything feel lighter, even the hardest burdens.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">16</div>
+        <p class="note-body">She listens to me, always, giving me her full heart and attention.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">17</div>
+        <p class="note-body">She makes me laugh like no one else can.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">18</div>
+        <p class="note-body">She brings peace into my life when everything else is chaotic.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">19</div>
+        <p class="note-body">She's strong in ways people don't always see, and I admire her for it.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">20</div>
+        <p class="note-body">She loves deeply and purely, without any conditions.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">21</div>
+        <p class="note-body">She's not just my best friend, she's family—my chosen sister.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">22</div>
+        <p class="note-body">She's my safe place, the one I can always return to.</p>
+        <span class="note-daisy">🌼</span>
+      </div>
+
+      <div class="note-card reveal">
+        <div class="note-number">23</div>
+        <p class="note-body">She's my forever person. Happy 23 to the one who means everything to me 🤍</p>
         <span class="note-daisy">🌼</span>
       </div>
 
@@ -682,70 +1264,12 @@ body {
   </div>
 </section>
 
-<!-- ═══════════ FUN QUIZ ═══════════ -->
-<section id="fun">
-  <div class="section-inner">
-    <p class="section-label reveal">Just for fun 🎉</p>
-    <h2 class="section-heading reveal">How well do you know us? 👯‍♀️</h2>
-    <div class="quiz-wrapper reveal">
-      <div id="quizContainer"></div>
-    </div>
-  </div>
-</section>
 
 
 
-<!-- ═══════════ PLAYLIST ═══════════ -->
-<section id="playlist">
-  <div class="section-inner">
-    <p class="section-label reveal">Songs for you 🎵</p>
-    <h2 class="section-heading reveal">Our playlist</h2>
-    <ul class="playlist-list">
-      <li class="playlist-item reveal">
-        <span class="playlist-num">01</span>
-        <div class="playlist-info">
-          <div class="playlist-song">Song Title Here</div>
-          <div class="playlist-artist">Artist Name</div>
-        </div>
-        <span class="playlist-note">This one always makes me think of you 💜</span>
-      </li>
-      <li class="playlist-item reveal">
-        <span class="playlist-num">02</span>
-        <div class="playlist-info">
-          <div class="playlist-song">Song Title Here</div>
-          <div class="playlist-artist">Artist Name</div>
-        </div>
-        <span class="playlist-note">Our road trip anthem 🌼</span>
-      </li>
-      <li class="playlist-item reveal">
-        <span class="playlist-num">03</span>
-        <div class="playlist-info">
-          <div class="playlist-song">Song Title Here</div>
-          <div class="playlist-artist">Artist Name</div>
-        </div>
-        <span class="playlist-note">You showed me this and I never looked back ✨</span>
-      </li>
-      <li class="playlist-item reveal">
-        <span class="playlist-num">04</span>
-        <div class="playlist-info">
-          <div class="playlist-song">Song Title Here</div>
-          <div class="playlist-artist">Artist Name</div>
-        </div>
-        <span class="playlist-note">Because it's literally about you 🫶</span>
-      </li>
-      <li class="playlist-item reveal">
-        <span class="playlist-num">05</span>
-        <div class="playlist-info">
-          <div class="playlist-song">Song Title Here</div>
-          <div class="playlist-artist">Artist Name</div>
-        </div>
-        <span class="playlist-note">Happy crying on the dance floor energy 🎉</span>
-      </li>
-    </ul>
-  </div>
-</section>
 
-<!-- ═══════════ BIRTHDAY COUNTDOWN ═══════════ -->
+
+<!-- ═══════════ BIRTHDAY letter═══════════ -->
 <section id="letter">
   <div class="section-inner">
     <p class="section-label reveal">A note from me 💌</p>
@@ -753,7 +1277,7 @@ body {
     
     <div id="passwordArea" class="letter-paper reveal" style="text-align: center; padding: 60px 24px;">
       <p class="letter-dear">This letter is locked with love...</p>
-      <p style="margin-bottom: 20px; font-style: italic; color: var(--text-mid);">"Give me a kiss if you want a hint!"</p>
+      <p style="margin-bottom: 20px; font-style: italic; color: var(--text-mid);">"call me if you want a hint!"</p>
       <input type="password" id="letterPassword" placeholder="Enter password..." style="padding: 12px; border-radius: 8px; border: 1px solid var(--lavender-soft); margin-bottom: 15px; outline: none; font-family: 'DM Sans', sans-serif;">
       <br>
       <button class="quiz-restart-btn" style="background: var(--lavender-mid); border: none;" onclick="checkPassword()">Open Letter 🔓</button>
@@ -761,45 +1285,129 @@ body {
     </div>
 
     <div id="actualLetter" class="letter-paper reveal" style="display: none;">
-      <p class="letter-dear">Dear Salmaa,</p>
+      <p class="letter-dear">Dear SHAYLAAA,</p>
       <p>
-        [Your heartfelt letter goes here! Tell her how much she means to you, 
-        share a favorite memory, or simply remind her how amazing she is.]
+        I still think about how everything started in 2018, like it was something simple, something ordinary… but it turned into one of the most meaningful things in my life. If I could go back to that moment, I would just smile, knowing that I was about to meet someone who would change everything for me ✨💜
+
+You didn’t come into my life loudly or suddenly, but in the softest way 🌼 And somehow, without me even realizing it, you became my person. The one I turn to without thinking, the one who just gets me even when I don’t say a word 💫
+
+What I love the most about you is not just how you’re there during the good moments, but how you stay during the hard ones 🤍 You never run away from my bad days, you sit with me in them, you make them feel lighter, less scary. And that kind of presence is so rare… it’s something people search for their whole lives ⭐
+
+With you, I feel safe in a way I can’t really explain 💜 I don’t feel judged, I don’t feel like I have to hide parts of myself. You’ve seen me in my weakest moments, in my confusion, in my silence… and you never made me feel like I was too much. Instead, you stayed, you listened, you understood 🌼
+
+There are so many little moments with you that mean everything to me ✨ The laughs that come out of nowhere, the conversations that last for hours, the quiet times that somehow still feel full. Even the simplest things become special just because they’re with you 💫
+
+Sometimes I look at you and I’m just in awe of the kind of person you are 💜 The way you care so deeply, the way your heart is so genuine, the way you give without expecting anything back… it’s beautiful 🌸 You have this light in you that makes people feel warm, seen, and loved without you even trying ⭐
+
+And I don’t think you always realize how special you are… but I do 🤍 I see it in everything you do, in the way you treat people, in the way you love. You are one of the rarest souls I’ve ever known 💜✨
+
+I also want you to know that you’ve done more for me than you think 🌼 You’ve helped me grow, you’ve helped me heal, you’ve been a part of some of my most important memories. You didn’t just stand next to me, you walked with me through everything 💫
+
+And honestly, one of the things I feel the most is this quiet fear… that time goes too fast ⭐ Every time I see you, there’s a small part of me that wishes the moment would just stay a little longer. Because time with you never feels like enough 💜
+
+No matter what life brings, no matter where we go, I know one thing for sure: you will always be a part of me 🤍 Not just as a best friend, but as something deeper, something that feels like family, like home 🌼
+
+If I had to choose again, in every lifetime, in every version of my life… I would still choose you ✨💜
+
+Happy 23, my forever person 🤍🌸
       </p>
       <br>
       <p>
-        I'm so grateful to have you in my life. You aren't just a friend; 
-        you're the sister I got to choose.
+     
       </p>
       <p class="letter-sign">
         Forever yours,<br>
-        [Your Name] 🌼
+        AYA FILALI 🌼
       </p>
     </div>
   </div>
 </section>
 
-<section id="contract" style="background: var(--daisy-white); overflow: hidden; padding-bottom: 100px;">
+
+<section id="special-video">
+  <div class="section-inner">
+    <p class="section-label reveal">A surprise for you 🎥</p>
+    <h2 class="section-heading reveal">made with a lot of LOVEEE</h2>
+    
+    <div class="video-container reveal">
+      <video controls playsinline style="width: 100%; border-radius: 15px; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        <source src="https://drive.google.com/uc?export=download&id=1mYCsEb6Qfiz7vJQz9AKgDa2nE-0QIEp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <span class="video-decoration reveal">🍿✨🎞️</span>
+    <p class="photo-caption reveal" style="margin-top: 15px; font-size: 1.1rem;">
+      "Press play for a trip down memory lane..."
+    </p>
+
+    <p class="reveal" style="margin-top: 10px;">
+      <a href="https://drive.google.com/file/d/1mYCsEb6Qfiz7vJQz9AKgDa2nE-0QIEp4/view?usp=sharing" target="_blank" style="color: var(--lavender-mid); text-decoration: none; font-size: 0.8rem; font-style: italic;">
+        🔗 Can't see the video? Click here to watch on Drive
+      </a>
+    </p>
+  </div>
+</section>
+
+
+<section id="contract" style="background: linear-gradient(160deg, var(--daisy-white) 0%, var(--lavender-pale) 100%); overflow: hidden; padding-bottom: 120px;">
   <div class="section-inner" style="text-align: center;">
     <p class="section-label reveal">Official Business 📝</p>
-    <h2 class="section-heading reveal">Sistership Extension Contract</h2>
-    <div class="letter-paper reveal" style="border: 2px dashed var(--lavender-mid);">
-      <p style="font-size: 1.2rem; margin-bottom: 20px;">
-        Do you, <strong>Salmaa</strong>, agree to extend our official sistership contract for another 100 years, effective immediately? 
-      </p>
-      <p style="font-size: 0.9rem; color: var(--text-mid); margin-bottom: 40px;">
-        Benefits include: 24/7 emotional support, shared snacks, inside jokes, and unconditional love.
-      </p>
+    <h2 class="section-heading reveal">Sistership Extension Contract 🤍</h2>
+
+    <div class="letter-paper reveal" style="background: white; border-radius: 40px; border: 3px solid var(--daisy-yellow); padding: 50px 30px; position: relative; max-width: 650px; margin: 0 auto; box-shadow: 0 15px 50px rgba(107,79,140,0.1);">
       
-      <div style="display: flex; justify-content: center; gap: 40px; position: relative; min-height: 80px; align-items: center;">
-        <button class="quiz-restart-btn" style="background: #86cf56; border: none; padding: 15px 40px; font-weight: bold;" onclick="acceptContract()">YES! ✅</button>
-        <button id="noBtn" class="quiz-restart-btn" style="background: #ff6464; border: none; position: absolute; left: 60%;">No ❌</button>
+      <p style="font-size: 1.3rem; margin-bottom: 40px;"><hr>
+        Do you, <strong>Salmaa</strong>, agree to extend our official sistership contract for **another 100 years**? 
+      </p>
+      <div style="background: var(--lilac-blush); border-radius: 20px; padding: 20px; margin-bottom: 40px; border: 1px solid var(--lavender-soft); text-align: left; max-width: 450px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 1rem; color: var(--lavender-deep); margin-bottom: 10px; font-weight: bold; text-align: center;">Benefits include:</p>
+        <ul style="list-style-type: '💜 '; padding-left: 20px; font-size: 0.95rem; line-height: 1.8; color: var(--text-mid); font-style: italic;">
+          <li>Unlimited 24/7 emotional support & inside jokes</li>
+          <li>Shared snacks & bezaafff Dial lGOSSIPP</li>
+          <li>Always having a safe place</li>
+          <li>A lifetime of unconditional love.</li>
+        </ul>
       </div>
-      <p id="contractMsg" style="margin-top: 30px; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--lavender-deep);"></p>
+      
+      <div style="display: flex; justify-content: center; align-items: center; min-height: 200px; position: relative;">
+        
+        <button class="quiz-restart-btn" 
+                style="background: #86cf56; border: none; padding: 18px 40px; font-weight: bold; z-index: 10; cursor: pointer; position: relative;" 
+                onclick="acceptContract()">YES! I'M IN ✅</button>
+        
+        <button id="noBtn" 
+                class="quiz-restart-btn" 
+                style="background: #ff6464; border: none; position: fixed; transition: all 0.2s ease; cursor: pointer; padding: 10px 20px; z-index: 1000; left: 60%;"
+                onmouseover="this.style.left = Math.random() * 80 + '%'; this.style.top = Math.random() * 80 + '%';"
+                onclick="this.style.left = Math.random() * 80 + '%'; this.style.top = Math.random() * 80 + '%';">
+                No ❌
+        </button>
+
+      </div>
+
+      <p id="contractMsg" style="margin-top: 35px; font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--text-dark); min-height: 30px;"></p>
     </div>
   </div>
 </section>
+<div id="successPopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 20000; align-items: center; justify-content: center; backdrop-filter: blur(8px); padding: 20px;">
+  <div style="background: white; padding: 15px; border-radius: 30px; position: relative; max-width: 500px; width: 90%; text-align: center; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+    
+    <img src="YOUR_CELEBRATION_PHOTO_LINK" id="popupImg" style="width: 100%; border-radius: 20px; border: 5px solid var(--daisy-yellow);">
+    
+    <h3 style="font-family: 'Playfair Display', serif; margin-top: 15px; color: var(--lavender-deep);">IT'S OFFICIAL! 🥂💜</h3>
+    <p style="font-family: 'Cormorant Garamond', serif; font-style: italic;">We're stuck together forever now!</p>
+    
+    <button onclick="document.getElementById('successPopup').style.display='none'" style="margin-top: 15px; background: var(--lavender-mid); color: white; border: none; padding: 10px 25px; border-radius: 10px; cursor: pointer;">Close 🌸</button>
+  </div>
+</div>
 
+<style>
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   Made with <span>💜</span> and a whole lot of daisies, just for you.
@@ -927,7 +1535,7 @@ function checkPassword() {
   const error = document.getElementById('passError');
   
   // Set your password here!
-  if (pass.toLowerCase() === "mwah") { 
+  if (pass.toLowerCase() === "shayla") { 
     document.getElementById('passwordArea').style.display = 'none';
     const letter = document.getElementById('actualLetter');
     letter.style.display = 'block';
@@ -938,31 +1546,57 @@ function checkPassword() {
 }
 
 /* ── Contract Logic ── */
-const noBtn = document.getElementById('noBtn');
+window.onload = function() {
+    const noBtn = document.getElementById('noBtn');
 
-noBtn.addEventListener('mouseover', () => {
-  // Move the button to a random position within the container
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 100);
-  const y = Math.random() * (200) - 100; // moves it up or down slightly
-  
-  noBtn.style.left = x + 'px';
-  noBtn.style.top = y + 'px';
-});
+    const moveButton = () => {
+        // This generates a random position within the visible screen area
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+        // We force it to stay within the middle area of the screen so it doesn't vanish
+        noBtn.style.position = 'fixed'; 
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+    };
+
+    // This triggers when the mouse touches it
+    noBtn.addEventListener('mouseover', moveButton);
+    
+    // This triggers for touchscreens (phones/tablets)
+    noBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        moveButton();
+    });
+};
 
 function acceptContract() {
   const msg = document.getElementById('contractMsg');
-  msg.textContent = "Contract Signed! Besties/Sisters Forever! 🥂💜🌼";
-  noBtn.style.display = 'none';
+  const popup = document.getElementById('successPopup');
   
-  // Throw extra petals
+  msg.textContent = "Contract Signed! Besties/Sisters Forever! 🥂💜🌼";
+  document.getElementById('noBtn').style.display = 'none';
+  
+  if(popup) {
+    popup.style.display = 'flex';
+  }
+
+  // Confetti effect
   for(let i=0; i<30; i++) {
      const el = document.createElement('span');
      el.textContent = '🎉';
      el.className = 'petal';
-     el.style.cssText = `left: ${Math.random()*100}%; font-size: 25px; animation-duration: 3s;`;
+     el.style.cssText = `left: ${Math.random()*100}%; font-size: 25px; animation-duration: 3s; z-index: 30000;`;
      document.getElementById('petalCanvas').appendChild(el);
   }
 }
+// Extra: If she manages to click it (mobile), move it anyway!
+noBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const fenceWidth = fence.offsetWidth;
+  const newX = Math.random() * (fenceWidth - 100);
+  noBtn.style.left = newX + 'px';
+});
 function unlockSite() {
   const pass = document.getElementById('mainPassword').value;
   // Using trim() to ignore accidental spaces and forcing lowercase
